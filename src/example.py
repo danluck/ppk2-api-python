@@ -27,7 +27,7 @@ ppk2_test.toggle_DUT_power("ON")  # enable DUT power
 ppk2_test.start_measuring()  # start measuring
 # measurements are a constant stream of bytes
 # the number of measurements in one sampling period depends on the wait between serial reads
-# it appears the maximum number of bytes received is 1024
+# it appears the maximum number of bytes received is 1024b
 # the sampling rate of the PPK2 is 100 samples per millisecond
 for i in range(0, 1000):
     read_data = ppk2_test.get_data()

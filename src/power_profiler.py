@@ -8,7 +8,7 @@ from threading import Thread
 from ppk2_api.ppk2_api import PPK2_MP as PPK2_API
 
 class PowerProfiler():
-    def __init__(self, serial_port=None, source_voltage_mV=3300, filename=None):
+    def __init__(self, serial_port=None, source_voltage_mV=2850, filename=None):
         """Initialize PPK2 power profiler with serial"""
         self.measuring = None
         self.measurement_thread = None
@@ -171,6 +171,7 @@ class PowerProfiler():
         """Returns average current of last measurement in mA"""
         if len(self.current_measurements) == 0:
             return 0
+        
 
         average_current_mA = (sum(self.current_measurements) / len(self.current_measurements)) / 1000 # measurements are in microamperes, divide by 1000
         return average_current_mA
